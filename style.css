@@ -1,0 +1,221 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.container {
+    background: white;
+    border-radius: 20px;
+    padding: 40px;
+    max-width: 800px;
+    width: 100%;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+h1 {
+    color: #333;
+    text-align: center;
+    margin-bottom: 10px;
+    font-size: 2.5em;
+}
+
+.description {
+    text-align: center;
+    color: #666;
+    margin-bottom: 30px;
+    font-size: 1.1em;
+}
+
+.controls {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+}
+
+label {
+    font-weight: 600;
+    color: #333;
+}
+
+input[type="number"] {
+    padding: 10px 15px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-size: 1em;
+    width: 80px;
+    text-align: center;
+}
+
+input[type="number"]:focus {
+    outline: none;
+    border-color: #667eea;
+}
+
+button {
+    padding: 12px 30px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#generateBtn {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+}
+
+#generateBtn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+}
+
+#clearBtn {
+    background: #f0f0f0;
+    color: #333;
+}
+
+#clearBtn:hover {
+    background: #e0e0e0;
+}
+
+.results {
+    margin-bottom: 30px;
+}
+
+.game {
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 12px;
+    margin-bottom: 15px;
+    animation: slideIn 0.5s ease;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.game-title {
+    font-weight: 600;
+    color: #667eea;
+    margin-bottom: 10px;
+    font-size: 1.1em;
+}
+
+.numbers {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.number {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 1.2em;
+    color: white;
+    animation: pop 0.5s ease;
+}
+
+@keyframes pop {
+    0% {
+        transform: scale(0);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.number:nth-child(1) { background: #FFB900; animation-delay: 0.1s; }
+.number:nth-child(2) { background: #FF6B6B; animation-delay: 0.2s; }
+.number:nth-child(3) { background: #4ECDC4; animation-delay: 0.3s; }
+.number:nth-child(4) { background: #A8E6CF; animation-delay: 0.4s; }
+.number:nth-child(5) { background: #95E1D3; animation-delay: 0.5s; }
+.number:nth-child(6) { background: #667eea; animation-delay: 0.6s; }
+
+.info, .stats {
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+}
+
+.info h3, .stats h3 {
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.info ul {
+    list-style-position: inside;
+    color: #666;
+    line-height: 1.8;
+}
+
+.stats p {
+    color: #666;
+    font-size: 1.1em;
+}
+
+.stats span {
+    font-weight: bold;
+    color: #667eea;
+    font-size: 1.3em;
+}
+
+@media (max-width: 600px) {
+    .container {
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 2em;
+    }
+
+    .controls {
+        flex-direction: column;
+    }
+
+    input[type="number"] {
+        width: 100%;
+    }
+
+    button {
+        width: 100%;
+    }
+
+    .number {
+        width: 45px;
+        height: 45px;
+        font-size: 1em;
+    }
+}

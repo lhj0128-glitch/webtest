@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>로또 번호 생성기</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>🎰 로또 번호 생성기</h1>
+        <p class="description">행운의 로또 번호를 생성해보세요!</p>
+        
+        <div class="controls">
+            <label for="gameCount">게임 수:</label>
+            <input type="number" id="gameCount" min="1" max="10" value="1">
+            <button id="generateBtn">번호 생성</button>
+            <button id="clearBtn">초기화</button>
+        </div>
+
+        <div id="results" class="results"></div>
+
+        <div class="info">
+            <h3>ℹ️ 로또 정보</h3>
+            <ul>
+                <li>1부터 45까지의 숫자 중 6개를 선택합니다</li>
+                <li>중복되지 않는 번호가 자동으로 생성됩니다</li>
+                <li>최대 10게임까지 한 번에 생성 가능합니다</li>
+            </ul>
+        </div>
+
+        <div class="stats">
+            <h3>📊 생성 통계</h3>
+            <p>총 생성된 게임 수: <span id="totalGames">0</span></p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
