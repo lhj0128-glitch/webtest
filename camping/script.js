@@ -11,6 +11,7 @@ class CampingChecklist {
         this.dateInput = document.getElementById('campingDate');
         this.loadDateBtn = document.getElementById('loadDateBtn');
         this.saveBtn = document.getElementById('saveBtn');
+        this.selectAllBtn = document.getElementById('selectAllBtn');
         this.resetBtn = document.getElementById('resetBtn');
         this.progressText = document.getElementById('progressText');
         this.progressFill = document.getElementById('progressFill');
@@ -28,6 +29,8 @@ class CampingChecklist {
         // 이벤트 리스너
         this.loadDateBtn.addEventListener('click', () => this.loadDate());
         this.saveBtn.addEventListener('click', () => this.saveChecklist());
+        this.selectAllBtn.addEventListener('click', () => this.selectAll());
+        this.resetBtn.addEventListener('click', () => this.resetChecklist());
         this.resetBtn.addEventListener('click', () => this.resetChecklist());
         
         this.checkboxes.forEach(checkbox => {
@@ -97,6 +100,16 @@ class CampingChecklist {
             });
             this.updateProgress();
         }
+    }
+
+    // 전체선택/해제
+    selectAll() {
+        const allChecked = this.checkedItems === this.totalItems;
+        
+        this.checkboxes.forEach(checkbox => {
+            checkbox.checked = !allChecked;
+        });
+        this.updateProgress();
     }
 
     // 진행률 업데이트
