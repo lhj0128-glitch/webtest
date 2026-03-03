@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>캠핑 준비물 체크리스트</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>⛺ 캠핑 준비물 체크리스트</h1>
+            <div class="date-controls">
+                <input type="date" id="campingDate" />
+                <button id="loadDateBtn">날짜 불러오기</button>
+                <button id="saveBtn">저장</button>
+                <button id="resetBtn">초기화</button>
+            </div>
+            <div class="saved-dates">
+                <h3>저장된 날짜</h3>
+                <div id="savedDatesList"></div>
+            </div>
+        </header>
+
+        <main>
+            <!-- 텐트 카테고리 -->
+            <section class="category">
+                <h2>🏕️ 텐트</h2>
+                <div class="items">
+                    <div class="item">
+                        <input type="checkbox" id="item1" data-item="텐트-금색쿠팡경제">
+                        <label for="item1">
+                            <span class="item-name">금색쿠팡경제</span>
+                            <span class="item-note">향목</span>
+                        </label>
+                    </div>
+                    <div class="item">
+                        <input type="checkbox" id="item2" data-item="텐트-테트라고가치대">
+                        <label for="item2">
+                            <span class="item-name">테트라고가치대</span>
+                            <span class="item-note">주방</span>
+                        </label>
+                    </div>
+                    <div class="item">
+                        <input type="checkbox" id="item3" data-item="텐트-코에어매트">
+                        <label for="item3">
+                            <span class="item-name">코에어매트</span>
+                            <span class="item-note">테이블</span>
+                        </label>
+                    </div>
+                    <div class="item">
+                        <input type="checkbox" id="item4" data-item="텐트-전기매트">
+                        <label for="item4">
+                            <span class="item-name">전기매트</span>
+                            <span class="item-note">주방</span>
+                        </label>
+                    </div>
+                    <div class="item">
+                        <input type="checkbox" id="item5" data-item="텐트-겨울용텐트(아이거)">
+                        <label for="item5">
+                            <span class="item-name">겨울용텐트(아이거)</span>
+                            <span class="item-note">주방</span>
+                        </label>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 다크팩 카테고리 -->
+            <section class="category">
+                <h2>🎒 다크팩</h2>
+                <div class="items">
+                    <div class="item">
+                        <input type="checkbox" id="item6" data-item="다크팩-오정아대그백">
+                        <label for="item6">
+                            <span class="item-name">오정아대그백</span>
+                            <span class="item-note">주방</span>
+                        </label>
+                    </div>
+                    <div class="item">
+                        <input type="checkbox" id="item7" data-item="다크팩-감주임플랙(50cm)">
+                        <label for="item7">
+                            <span class="item-name">감주임 플랙(50cm)</span>
+                            <span class="item-note">주방</span>
+                        </label>
+                    </div>
+                    <div class="item">
+                        <input type="checkbox" id="item8" data-item="다크팩-감주임플랙(40cm)">
+                        <label for="item8">
+                            <span class="item-name">감주임 플랙(40cm)</span>
+                            <span class="item-note">주방</span>
+                        </label>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 텐트 추가 카테고리 -->
+            <section class="category">
+                <h2>🏕️ 텐트 추가</h2>
+                <div class="items">
+                    <div class="item">
+                        <input type="checkbox" id="item9" data-item="텐트-카페트">
+                        <label for="item9">
+                            <span class="item-name">카페트</span>
+                            <span class="item-note">주방</span>
+                        </label>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 야계용 카테고리 -->
+            <section class="category">
+                <h2>🌙 야계용</h2>
+                <div class="items">
+                    <div class="item">
+                        <input type="checkbox" id="item10" data-item="야계용-그라운드시트(6각정오)">
+                        <label for="item10">
+                            <span class="item-name">그라운드시트(6각정오)</span>
+                            <span class="item-note">주방</span>
+                        </label>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 텐트 추가2 카테고리 -->
+            <section class="category">
+                <h2>🏕️ 텐트 도구</h2>
+                <div class="items">
+                    <div class="item">
+                        <input type="checkbox" id="item11" data-item="텐트-그라디스5-6인용">
+                        <label for="item11">
+                            <span class="item-name">그라디스5-6인용</span>
+                            <span class="item-note">주방</span>
+                        </label>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 타프 카테고리 -->
+            <section class="category">
+                <h2>⛺ 타프</h2>
+                <div class="items">
+                    <div class="item">
+                        <input type="checkbox" id="item12" data-item="타프-실타프">
+                        <label for="item12">
+                            <span class="item-name">실타프</span>
+                        </label>
+                    </div>
+                    <div class="item">
+                        <input type="checkbox" id="item13" data-item="타프-타프300D">
+                        <label for="item13">
+                            <span class="item-name">타프 300D</span>
+                        </label>
+                    </div>
+                    <div class="item">
+                        <input type="checkbox" id="item14" data-item="타프-타타슬라이드">
+                        <label for="item14">
+                            <span class="item-name">타타슬라이드</span>
+                        </label>
+                    </div>
+                    <div class="item">
+                        <input type="checkbox" id="item15" data-item="타프-노난아더미지제외">
+                        <label for="item15">
+                            <span class="item-name">노난아더미지제외</span>
+                        </label>
+                    </div>
+                    <div class="item">
+                        <input type="checkbox" id="item16" data-item="타프-타포스크린">
+                        <label for="item16">
+                            <span class="item-name">타포스크린</span>
+                        </label>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 향목 카테고리 -->
+            <section class="category">
+                <h2>🔧 향목</h2>
+                <div class="items">
+                    <div class="item">
+                        <input type="checkbox" id="item17" data-item="향목-발간색양동">
+                        <label for="item17">
+                            <span class="item-name">발간색양동</span>
+                        </label>
+                    </div>
+                    <div class="item">
+                        <input type="checkbox" id="item18" data-item="향목-주방">
+                        <label for="item18">
+                            <span class="item-name">주방</span>
+                        </label>
+                    </div>
+                    <div class="item">
+                        <input type="checkbox" id="item19" data-item="향목-큐브익스펜더L6">
+                        <label for="item19">
+                            <span class="item-name">큐브익스펜더 L6</span>
+                        </label>
+                    </div>
+                    <div class="item">
+                        <input type="checkbox" id="item20" data-item="향목-캠핑접이식화로대">
+                        <label for="item20">
+                            <span class="item-name">캠핑접이식화로대</span>
+                        </label>
+                    </div>
+                    <div class="item">
+                        <input type="checkbox" id="item21" data-item="향목-아이스박스(45L,33,20)">
+                        <label for="item21">
+                            <span class="item-name">아이스박스(45L, 33, 20)</span>
+                        </label>
+                    </div>
+                    <div class="item">
+                        <input type="checkbox" id="item22" data-item="향목-수저,젓가락">
+                        <label for="item22">
+                            <span class="item-name">수저, 젓가락</span>
+                        </label>
+                    </div>
+                    <div class="item">
+                        <input type="checkbox" id="item23" data-item="향목-BBQ장갑">
+                        <label for="item23">
+                            <span class="item-name">BBQ 장갑</span>
+                        </label>
+                    </div>
+                    <div class="item">
+                        <input type="checkbox" id="item24" data-item="향목-외식도마">
+                        <label for="item24">
+                            <span class="item-name">외식도마</span>
+                        </label>
+                    </div>
+                    <div class="item">
+                        <input type="checkbox" id="item25" data-item="향목-바람막이">
+                        <label for="item25">
+                            <span class="item-name">바람막이</span>
+                        </label>
+                    </div>
+                    <div class="item">
+                        <input type="checkbox" id="item26" data-item="향목-멀티홀과우치">
+                        <label for="item26">
+                            <span class="item-name">멀티홀과우치</span>
+                        </label>
+                    </div>
+                    <div class="item">
+                        <input type="checkbox" id="item27" data-item="향목-코기질세제">
+                        <label for="item27">
+                            <span class="item-name">코기질세제</span>
+                        </label>
+                    </div>
+                    <div class="item">
+                        <input type="checkbox" id="item28" data-item="향목-롤더박스상판">
+                        <label for="item28">
+                            <span class="item-name">롤더박스 상판</span>
+                        </label>
+                    </div>
+                    <div class="item">
+                        <input type="checkbox" id="item29" data-item="향목-그리릅덕집개">
+                        <label for="item29">
+                            <span class="item-name">그리릅덕집개</span>
+                        </label>
+                    </div>
+                    <div class="item">
+                        <input type="checkbox" id="item30" data-item="향목-그릴">
+                        <label for="item30">
+                            <span class="item-name">그릴</span>
+                        </label>
+                    </div>
+                    <div class="item">
+                        <input type="checkbox" id="item31" data-item="향목-참아석컵">
+                        <label for="item31">
+                            <span class="item-name">참아석컵</span>
+                        </label>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 거실 카테고리 -->
+            <section class="category">
+                <h2>🏠 거실</h2>
+                <div class="items">
+                    <div class="item">
+                        <input type="checkbox" id="item32" data-item="거실-모기향댄소기">
+                        <label for="item32">
+                            <span class="item-name">모기향댄소기</span>
+                        </label>
+                    </div>
+                    <div class="item">
+                        <input type="checkbox" id="item33" data-item="거실-쓰레기봉투점이">
+                        <label for="item33">
+                            <span class="item-name">쓰레기봉투점이</span>
+                        </label>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 침낭 카테고리 -->
+            <section class="category">
+                <h2>💤 침낭</h2>
+                <div class="items">
+                    <div class="item">
+                        <input type="checkbox" id="item34" data-item="침낭-캘린트조대장텐트가방">
+                        <label for="item34">
+                            <span class="item-name">캘린트 조대장 텐트가방</span>
+                        </label>
+                    </div>
+                    <div class="item">
+                        <input type="checkbox" id="item35" data-item="침낭-사계절침낭">
+                        <label for="item35">
+                            <span class="item-name">사계절침낭</span>
+                        </label>
+                    </div>
+                    <div class="item">
+                        <input type="checkbox" id="item36" data-item="침낭-코보천낭팽">
+                        <label for="item36">
+                            <span class="item-name">코보천낭 팽</span>
+                        </label>
+                    </div>
+                    <div class="item">
+                        <input type="checkbox" id="item37" data-item="침낭-코보천낭텐트">
+                        <label for="item37">
+                            <span class="item-name">코보천낭 텐트</span>
+                        </label>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 버너 카테고리 -->
+            <section class="category">
+                <h2>🔥 버너</h2>
+                <div class="items">
+                    <div class="item">
+                        <input type="checkbox" id="item38" data-item="버너-구이버너">
+                        <label for="item38">
+                            <span class="item-name">구이버너</span>
+                        </label>
+                    </div>
+                    <div class="item">
+                        <input type="checkbox" id="item39" data-item="버너-부타가스">
+                        <label for="item39">
+                            <span class="item-name">부타가스</span>
+                        </label>
+                    </div>
+                    <div class="item">
+                        <input type="checkbox" id="item40" data-item="버너-이쇼가스">
+                        <label for="item40">
+                            <span class="item-name">이쇼가스</span>
+                        </label>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 거실 추가 카테고리 -->
+            <section class="category">
+                <h2>🏠 거실 도구</h2>
+                <div class="items">
+                    <div class="item">
+                        <input type="checkbox" id="item41" data-item="거실-바핵스마한랜턴걸이">
+                        <label for="item41">
+                            <span class="item-name">바핵스마한 랜턴걸이</span>
+                        </label>
+                    </div>
+                    <div class="item">
+                        <input type="checkbox" id="item42" data-item="거실-바핵스마한1400">
+                        <label for="item42">
+                            <span class="item-name">바핵스마한 1400</span>
+                        </label>
+                    </div>
+                    <div class="item">
+                        <input type="checkbox" id="item43" data-item="거실-플라입스우드등클립식제어">
+                        <label for="item43">
+                            <span class="item-name">플라입스 우드 등 클립식 제어</span>
+                        </label>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 산 카테고리 -->
+            <section class="category">
+                <h2>⛰️ 산</h2>
+                <div class="items">
+                    <div class="item">
+                        <input type="checkbox" id="item44" data-item="산-간이삽">
+                        <label for="item44">
+                            <span class="item-name">간이삽</span>
+                        </label>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 의자 카테고리 -->
+            <section class="category">
+                <h2>🪑 의자</h2>
+                <div class="items">
+                    <div class="item">
+                        <input type="checkbox" id="item45" data-item="의자-폴준제어">
+                        <label for="item45">
+                            <span class="item-name">폴준제어</span>
+                        </label>
+                    </div>
+                    <div class="item">
+                        <input type="checkbox" id="item46" data-item="의자-등체여">
+                        <label for="item46">
+                            <span class="item-name">등체여</span>
+                        </label>
+                    </div>
+                    <div class="item">
+                        <input type="checkbox" id="item47" data-item="의자-손체여">
+                        <label for="item47">
+                            <span class="item-name">손체여</span>
+                        </label>
+                    </div>
+                    <div class="item">
+                        <input type="checkbox" id="item48" data-item="의자-칠랜티울텍스체어">
+                        <label for="item48">
+                            <span class="item-name">칠랜티울 텍스체어</span>
+                        </label>
+                    </div>
+                    <div class="item">
+                        <input type="checkbox" id="item49" data-item="의자-칠랜티울텍스체어2">
+                        <label for="item49">
+                            <span class="item-name">칠랜티울 텍스체어</span>
+                        </label>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 물놀이 카테고리 -->
+            <section class="category">
+                <h2>🏊 물놀이</h2>
+                <div class="items">
+                    <div class="item">
+                        <input type="checkbox" id="item50" data-item="물놀이-LDE40추천구">
+                        <label for="item50">
+                            <span class="item-name">LDE 40추천구</span>
+                        </label>
+                    </div>
+                    <div class="item">
+                        <input type="checkbox" id="item51" data-item="물놀이-금액도저구">
+                        <label for="item51">
+                            <span class="item-name">금액도저구</span>
+                        </label>
+                    </div>
+                    <div class="item">
+                        <input type="checkbox" id="item52" data-item="물놀이-Jeep캠핑알채용손도기">
+                        <label for="item52">
+                            <span class="item-name">Jeep 캠핑 알채용 손도기</span>
+                        </label>
+                    </div>
+                    <div class="item">
+                        <input type="checkbox" id="item53" data-item="물놀이-멀티코드선30m">
+                        <label for="item53">
+                            <span class="item-name">멀티코드선 30m</span>
+                        </label>
+                    </div>
+                    <div class="item">
+                        <input type="checkbox" id="item54" data-item="물놀이-멀티코드선10m">
+                        <label for="item54">
+                            <span class="item-name">멀티코드선 10m</span>
+                        </label>
+                    </div>
+                    <div class="item">
+                        <input type="checkbox" id="item55" data-item="물놀이-캠핑용카라미너">
+                        <label for="item55">
+                            <span class="item-name">캠핑용 카라미너</span>
+                        </label>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 무전기 카테고리 -->
+            <section class="category">
+                <h2>📡 무전기</h2>
+                <div class="items">
+                    <div class="item">
+                        <input type="checkbox" id="item56" data-item="무전기-차량캐,거실화인필요">
+                        <label for="item56">
+                            <span class="item-name">차량캐, 거실화인필요</span>
+                        </label>
+                    </div>
+                    <div class="item">
+                        <input type="checkbox" id="item57" data-item="무전기-여분오">
+                        <label for="item57">
+                            <span class="item-name">여분 오</span>
+                        </label>
+                    </div>
+                    <div class="item">
+                        <input type="checkbox" id="item58" data-item="무전기-칼러시팀">
+                        <label for="item58">
+                            <span class="item-name">칼러시팀</span>
+                        </label>
+                    </div>
+                    <div class="item">
+                        <input type="checkbox" id="item59" data-item="무전기-헤드존">
+                        <label for="item59">
+                            <span class="item-name">헤드존</span>
+                        </label>
+                    </div>
+                    <div class="item">
+                        <input type="checkbox" id="item60" data-item="무전기-수검">
+                        <label for="item60">
+                            <span class="item-name">수검</span>
+                        </label>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 침낭 추가 카테고리 -->
+            <section class="category">
+                <h2>💤 침낭 도구</h2>
+                <div class="items">
+                    <div class="item">
+                        <input type="checkbox" id="item61" data-item="침낭-오리엠탈7000오리탈등제">
+                        <label for="item61">
+                            <span class="item-name">오리엠탈 7000 오리탈 등제</span>
+                        </label>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 코랄 카테고리 -->
+            <section class="category">
+                <h2>🎯 코랄</h2>
+                <div class="items">
+                    <div class="item">
+                        <input type="checkbox" id="item62" data-item="코랄-모기집불팔">
+                        <label for="item62">
+                            <span class="item-name">모기집불팔</span>
+                        </label>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 라탈 카테고리 -->
+            <section class="category">
+                <h2>🔦 라탈</h2>
+                <div class="items">
+                    <div class="item">
+                        <input type="checkbox" id="item63" data-item="라탈-슬트라3.0M">
+                        <label for="item63">
+                            <span class="item-name">슬트라 3.0M</span>
+                        </label>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 물놀이 추가 카테고리 -->
+            <section class="category">
+                <h2>🏊 물놀이 추가</h2>
+                <div class="items">
+                    <div class="item">
+                        <input type="checkbox" id="item64" data-item="물놀이-조대형매석비텍">
+                        <label for="item64">
+                            <span class="item-name">조대형매석비텍</span>
+                        </label>
+                    </div>
+                    <div class="item">
+                        <input type="checkbox" id="item65" data-item="물놀이-수영조기">
+                        <label for="item65">
+                            <span class="item-name">수영조기</span>
+                        </label>
+                    </div>
+                    <div class="item">
+                        <input type="checkbox" id="item66" data-item="물놀이-아쿠아수즈">
+                        <label for="item66">
+                            <span class="item-name">아쿠아수즈</span>
+                        </label>
+                    </div>
+                    <div class="item">
+                        <input type="checkbox" id="item67" data-item="물놀이-수영보자">
+                        <label for="item67">
+                            <span class="item-name">수영보자</span>
+                        </label>
+                    </div>
+                    <div class="item">
+                        <input type="checkbox" id="item68" data-item="물놀이-수정복">
+                        <label for="item68">
+                            <span class="item-name">수정복</span>
+                        </label>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+        <footer>
+            <div class="progress">
+                <p>체크 진행률: <span id="progressText">0/68 (0%)</span></p>
+                <div class="progress-bar">
+                    <div id="progressFill"></div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

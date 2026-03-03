@@ -1,0 +1,255 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+}
+
+header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 30px;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 2.5em;
+}
+
+.date-controls {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.date-controls input[type="date"] {
+    padding: 10px 15px;
+    border: 2px solid white;
+    border-radius: 8px;
+    font-size: 1em;
+    background: rgba(255, 255, 255, 0.9);
+}
+
+.date-controls button {
+    padding: 10px 20px;
+    border: 2px solid white;
+    border-radius: 8px;
+    font-size: 1em;
+    font-weight: 600;
+    cursor: pointer;
+    background: white;
+    color: #667eea;
+    transition: all 0.3s ease;
+}
+
+.date-controls button:hover {
+    background: rgba(255, 255, 255, 0.9);
+    transform: translateY(-2px);
+}
+
+.saved-dates {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 15px;
+    border-radius: 10px;
+    margin-top: 15px;
+}
+
+.saved-dates h3 {
+    margin-bottom: 10px;
+    font-size: 1.1em;
+}
+
+#savedDatesList {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.date-tag {
+    background: white;
+    color: #667eea;
+    padding: 8px 15px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.date-tag:hover {
+    background: #f0f0f0;
+    transform: scale(1.05);
+}
+
+.date-tag .delete-btn {
+    background: #e74c3c;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    font-size: 12px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.date-tag .delete-btn:hover {
+    background: #c0392b;
+}
+
+main {
+    padding: 30px;
+}
+
+.category {
+    margin-bottom: 30px;
+    border: 2px solid #ecf0f1;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.category h2 {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 15px 20px;
+    margin: 0;
+    font-size: 1.4em;
+}
+
+.items {
+    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 15px;
+}
+
+.item {
+    display: flex;
+    align-items: center;
+    padding: 12px;
+    background: #f8f9fa;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.item:hover {
+    background: #e9ecef;
+    transform: translateX(5px);
+}
+
+.item input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    margin-right: 12px;
+    accent-color: #667eea;
+}
+
+.item label {
+    cursor: pointer;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.item-name {
+    font-weight: 600;
+    color: #2c3e50;
+    font-size: 1em;
+}
+
+.item-note {
+    font-size: 0.85em;
+    color: #7f8c8d;
+}
+
+.item input[type="checkbox"]:checked + label .item-name {
+    text-decoration: line-through;
+    color: #95a5a6;
+}
+
+footer {
+    background: #ecf0f1;
+    padding: 20px 30px;
+}
+
+.progress {
+    text-align: center;
+}
+
+.progress p {
+    font-size: 1.2em;
+    font-weight: 600;
+    color: #2c3e50;
+    margin-bottom: 10px;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 30px;
+    background: #ddd;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+#progressFill {
+    height: 100%;
+    background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+    width: 0%;
+    transition: width 0.5s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+}
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 1.8em;
+    }
+
+    .items {
+        grid-template-columns: 1fr;
+    }
+
+    .date-controls {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .date-controls input,
+    .date-controls button {
+        width: 100%;
+    }
+}
+
+.empty-state {
+    text-align: center;
+    color: rgba(255, 255, 255, 0.7);
+    font-style: italic;
+}
