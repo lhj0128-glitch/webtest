@@ -102,12 +102,10 @@ class CampingChecklist {
         }
     }
 
-    // 전체선택/해제
+    // 전체선택
     selectAll() {
-        const allChecked = this.checkedItems === this.totalItems;
-        
         this.checkboxes.forEach(checkbox => {
-            checkbox.checked = !allChecked;
+            checkbox.checked = true;
         });
         this.updateProgress();
     }
