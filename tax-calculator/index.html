@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>연말정산 계산기</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>💰 연말정산 계산기</h1>
+            <p class="subtitle">간편하게 예상 환급액을 계산해보세요</p>
+        </header>
+
+        <main>
+            <!-- 기본 정보 -->
+            <section class="section">
+                <h2>📋 기본 정보</h2>
+                <div class="input-group">
+                    <label for="totalIncome">총급여액</label>
+                    <input type="number" id="totalIncome" placeholder="50,000,000" min="0">
+                    <span class="unit">원</span>
+                </div>
+                <div class="input-group">
+                    <label for="paidTax">기납부세액</label>
+                    <input type="number" id="paidTax" placeholder="3,000,000" min="0">
+                    <span class="unit">원</span>
+                </div>
+            </section>
+
+            <!-- 인적공제 -->
+            <section class="section">
+                <h2>👨‍👩‍👧‍👦 인적공제</h2>
+                <div class="input-group">
+                    <label for="본인">본인</label>
+                    <input type="checkbox" id="본인" checked disabled>
+                    <span class="deduction-amount">150만원</span>
+                </div>
+                <div class="input-group">
+                    <label for="배우자">배우자</label>
+                    <input type="checkbox" id="배우자" class="family-checkbox">
+                    <span class="deduction-amount">150만원</span>
+                </div>
+                <div class="input-group">
+                    <label for="부양가족수">부양가족 수 (자녀, 부모 등)</label>
+                    <input type="number" id="부양가족수" min="0" value="0">
+                    <span class="unit">명 × 150만원</span>
+                </div>
+                <div class="input-group">
+                    <label for="자녀수">자녀 수 (20세 이하)</label>
+                    <input type="number" id="자녀수" min="0" value="0">
+                    <span class="unit">명 (첫째 연 15만원, 둘째 15만원, 셋째부터 30만원)</span>
+                </div>
+            </section>
+
+            <!-- 소득공제 -->
+            <section class="section">
+                <h2>💳 소득공제</h2>
+                <div class="input-group">
+                    <label for="국민연금">국민연금 보험료</label>
+                    <input type="number" id="국민연금" placeholder="4,500,000" min="0">
+                    <span class="unit">원 (전액공제)</span>
+                </div>
+                <div class="input-group">
+                    <label for="건강보험">건강보험료</label>
+                    <input type="number" id="건강보험" placeholder="2,500,000" min="0">
+                    <span class="unit">원 (전액공제)</span>
+                </div>
+                <div class="input-group">
+                    <label for="신용카드">신용카드 사용액</label>
+                    <input type="number" id="신용카드" placeholder="10,000,000" min="0">
+                    <span class="unit">원 (15% 공제)</span>
+                </div>
+                <div class="input-group">
+                    <label for="체크카드">체크카드 사용액</label>
+                    <input type="number" id="체크카드" placeholder="5,000,000" min="0">
+                    <span class="unit">원 (30% 공제)</span>
+                </div>
+                <div class="input-group">
+                    <label for="현금영수증">현금영수증</label>
+                    <input type="number" id="현금영수증" placeholder="2,000,000" min="0">
+                    <span class="unit">원 (30% 공제)</span>
+                </div>
+                <div class="input-group">
+                    <label for="주택자금">주택자금 (주택임차차입금 원리금)</label>
+                    <input type="number" id="주택자금" placeholder="3,000,000" min="0">
+                    <span class="unit">원 (40% 공제)</span>
+                </div>
+            </section>
+
+            <!-- 세액공제 -->
+            <section class="section">
+                <h2>🎓 세액공제</h2>
+                <div class="input-group">
+                    <label for="보험료">보장성 보험료</label>
+                    <input type="number" id="보험료" placeholder="1,200,000" min="0">
+                    <span class="unit">원 (12% 공제, 한도 100만원)</span>
+                </div>
+                <div class="input-group">
+                    <label for="의료비">의료비</label>
+                    <input type="number" id="의료비" placeholder="2,000,000" min="0">
+                    <span class="unit">원 (15% 공제)</span>
+                </div>
+                <div class="input-group">
+                    <label for="교육비">교육비</label>
+                    <input type="number" id="교육비" placeholder="3,000,000" min="0">
+                    <span class="unit">원 (15% 공제)</span>
+                </div>
+                <div class="input-group">
+                    <label for="기부금">기부금</label>
+                    <input type="number" id="기부금" placeholder="1,000,000" min="0">
+                    <span class="unit">원 (15% 공제)</span>
+                </div>
+                <div class="input-group">
+                    <label for="월세">월세액</label>
+                    <input type="number" id="월세" placeholder="7,200,000" min="0">
+                    <span class="unit">원 (12% 공제, 한도 750만원)</span>
+                </div>
+                <div class="input-group">
+                    <label for="연금저축">연금저축</label>
+                    <input type="number" id="연금저축" placeholder="4,000,000" min="0">
+                    <span class="unit">원 (12% 공제, 한도 400만원)</span>
+                </div>
+            </section>
+
+            <!-- 계산 버튼 -->
+            <div class="button-group">
+                <button id="calculateBtn" class="primary-btn">계산하기</button>
+                <button id="resetBtn" class="secondary-btn">초기화</button>
+            </div>
+
+            <!-- 결과 -->
+            <section class="result-section" id="resultSection" style="display: none;">
+                <h2>📊 계산 결과</h2>
+                <div class="result-grid">
+                    <div class="result-item">
+                        <span class="result-label">총급여액</span>
+                        <span class="result-value" id="result총급여">0원</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-label">근로소득공제</span>
+                        <span class="result-value" id="result근로소득공제">0원</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-label">근로소득금액</span>
+                        <span class="result-value" id="result근로소득금액">0원</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-label">인적공제</span>
+                        <span class="result-value" id="result인적공제">0원</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-label">기타 소득공제</span>
+                        <span class="result-value" id="result기타소득공제">0원</span>
+                    </div>
+                    <div class="result-item highlight">
+                        <span class="result-label">과세표준</span>
+                        <span class="result-value" id="result과세표준">0원</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-label">산출세액</span>
+                        <span class="result-value" id="result산출세액">0원</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-label">세액공제</span>
+                        <span class="result-value" id="result세액공제">0원</span>
+                    </div>
+                    <div class="result-item highlight">
+                        <span class="result-label">결정세액</span>
+                        <span class="result-value" id="result결정세액">0원</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-label">기납부세액</span>
+                        <span class="result-value" id="result기납부세액">0원</span>
+                    </div>
+                    <div class="result-item final" id="finalResult">
+                        <span class="result-label">환급/추가납부</span>
+                        <span class="result-value" id="result최종">0원</span>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p class="disclaimer">※ 이 계산기는 간이 계산용이며, 실제 연말정산 결과와 다를 수 있습니다.</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
